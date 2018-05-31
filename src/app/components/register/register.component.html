@@ -1,0 +1,23 @@
+<form #myForm="ngForm" (ngSubmit)="sub(ngForm.value)">
+    <div>用户名：<input ngModel name="username" type="text"/></div>
+    <div>密码：<input ngModel name="password" type="password"/></div>
+    <div>年龄：<input ngModel name="age" type="text"/></div>
+    <div>性别：<input ngModel name="sex" type="text"/></div>
+    <div>手机号：<input ngModel name="phone" type="text"/></div>
+    <input type="submit" text="注册"/>
+</form>
+
+<input
+  #myEmail="ngModel"
+  type="text"
+  name="email"
+  placeholder="请输入您的 email 地址"
+  ngModel />
+
+<div>
+    {{myForm.value | json}}
+</div>
+
+<div>
+    {{myEmail.value | json}}
+</div>

@@ -1,0 +1,25 @@
+<form [formGroup]="userInfo" (submit)="onSubmit()">
+
+    <div>用户名：<input type="text" formControlName="username"/></div>
+    <div>密码：<input type="password" formControlName="password"/></div>
+    <div formGroupName="base">
+        <div>年龄：<input type="text" formControlName="age"/></div>
+        <div>性别：<input type="text" formControlName="sex"/></div>
+    </div>
+
+    <!-- 添加邮箱 -->
+    <div formArrayName="emails" >
+        <div *ngFor="let email of this.userInfo.get('emails').controls;let i = index" >
+            邮箱：{{i+1}}<input type="text" [formControlName]="i"/>
+        </div>
+        <a href="javascript:;" (click)="addEmail()">添加邮箱</a>
+
+    </div>
+  
+    <div>电话<input type="text" formControlName="tel"/></div>
+    <input type="submit" />
+  </form>
+  
+  <div>
+    {{userInfo.value | json}}
+  </div>

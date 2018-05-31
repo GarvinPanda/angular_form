@@ -1,0 +1,16 @@
+<form [formGroup]="userData" (submit)="onSubmit()">
+
+  <div>用户名：<input type="text" formControlName="username"/></div>
+  <div>密码：<input type="password" formControlName="password"/></div>
+  <div formGroupName="base">
+      <div>年龄：<input type="text" formControlName="age"/></div>
+      <div>性别：<input type="text" formControlName="sex"/></div>
+  </div>
+
+  <div>电话<input type="text" formControlName="tel"/></div>
+  <input type="submit" />
+</form>
+
+<div>
+  {{userData.value | json}}
+</div>
